@@ -1,6 +1,8 @@
 # Demo App
 
-Practice App utiliziing Svelte.js with Typescript, Auth0-spa-js, rxjs BehaviorSubjects.
+Practice App utiliziing Svelte.js with Typescript, Auth0-spa-js, rxjs BehaviorSubjects to keep everything in sync
+
+[DEMO](https://alexvdvalk.github.io/Svelte-todo-with-auth0/)
 
 ## Get started
 

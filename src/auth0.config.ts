@@ -27,7 +27,6 @@ export const userSub = new BehaviorSubject<Auth0User>(null);
 
 export const performLogin = async () => {
   await auth0.loginWithPopup();
-  console.log(await auth0.getUser());
   userSub.next(await auth0.getUser());
 };
 
