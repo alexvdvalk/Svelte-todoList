@@ -4,7 +4,7 @@ Practice App utiliziing Svelte.js with Typescript, Auth0-spa-js, rxjs BehaviorSu
 
 <a href="https://alexvdvalk.github.io/Svelte-todo-with-auth0/" target="_blank">DEMO</a>
 
-Username: demo@demo.com
+Username: demo@demo.com\
 Password: F7xU7tY5Kf
 
 ## Get started
