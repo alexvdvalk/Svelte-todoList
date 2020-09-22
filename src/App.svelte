@@ -20,9 +20,9 @@
 <main>
   <NavigationBar />
   <div class="container">
-    {#if $userSub}
-      <TodoForm />
-    {/if}
+    <!-- {#if $userSub} -->
+    <TodoForm />
+    <!-- {/if} -->
 
     <TodoList />
     <!-- <h1>Router</h1>
