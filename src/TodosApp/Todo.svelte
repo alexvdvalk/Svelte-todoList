@@ -1,14 +1,11 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { slide } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import type { ToDo } from "./models/todo.class";
   import { deleteTodoID, toggleCompleteStatus } from "./todoList";
 
   export let todo: ToDo;
   export let id: number;
-  let test;
   // $: doubled = count * 2;
-
   const deleteTodo = () => {
     deleteTodoID(id);
   };
@@ -22,11 +19,9 @@
 </style>
 
 <!-- HTML -->
-<!-- <div class="card" transition:slide>
-  <div class="card-body"> -->
 <li
   class="d-flex justify-content-between align-items-center list-group-item"
-  transition:slide|local>
+  transition:fly>
   {#if todo.complete}
     <div>
       <i class="fas fa-check-circle text-success" on:click={toggleComplete} />

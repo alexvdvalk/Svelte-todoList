@@ -14,6 +14,7 @@
     if (title.length > 0) {
       addTodo(title);
       title = "";
+      error = "";
     } else {
       error = "Please add a task description";
     }
@@ -23,7 +24,7 @@
 <style>
 </style>
 
-<form class="d-flex">
+<form class="d-flex" on:submit|preventDefault={submitForm}>
   <div class="flex-grow-1 w-100 pt-2 pb-2 pr-2">
     <input
       type="text"
@@ -33,10 +34,7 @@
   </div>
 
   <div class="pt-2 pb-2">
-    <button
-      type="button"
-      class="btn btn-primary"
-      on:click={submitForm}>Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
 {#if error}

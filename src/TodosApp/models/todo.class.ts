@@ -10,7 +10,7 @@ export class ToDo {
 
   toggleComplete() {
     if (this.complete) {
-      delete this.dateCompleted;
+      this.dateCompleted = null;
     } else {
       this.dateCompleted = new Date();
     }
