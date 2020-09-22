@@ -1,41 +1,49 @@
 <script lang="ts">
   import { addTodo, addRandom } from "./todoList";
-  import Flex from "svelte-flex";
-  let title: string;
-  let fetchingRandom = false;
+  let title = "";
 
-  const addRandomTodo = async () => {
-    fetchingRandom = true;
-    await addRandom();
-    fetchingRandom = false;
+  let error: string;
+
+  // const addRandomTodo = async () => {
+  //   fetchingRandom = true;
+  //   await addRandom();
+  //   fetchingRandom = false;
+  // };
+
+  const submitForm = async () => {
+    if (title.length > 0) {
+      addTodo(title);
+      title = "";
+    } else {
+      error = "Please add a task description";
+    }
   };
 </script>
 
 <style>
-  form {
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
 </style>
 
-<form class="form-inline" on:submit|preventDefault>
-  <Flex direction="row wrap" align="start">
-    <div class="form-group mb-2">
-      <input
-        type="text"
-        bind:value={title}
-        class="form-control"
-        placeholder="Create a new task" />
-    </div>
+<form class="d-flex">
+  <div class="flex-grow-1 w-100 pt-2 pb-2 pr-2">
+    <input
+      type="text"
+      bind:value={title}
+      class="form-control"
+      placeholder="Create a new task" />
+  </div>
 
-    <button
-      type="submit"
-      class="btn btn-primary mb-2"
-      on:click={() => addTodo(title)}>Submit</button>
+  <div class="pt-2 pb-2">
     <button
       type="button"
-      disabled={fetchingRandom}
-      class="btn btn-primary mb-2"
-      on:click={() => addRandomTodo()}>Add Random Todo</button>
-  </Flex>
+      class="btn btn-primary"
+      on:click={submitForm}>Submit</button>
+  </div>
 </form>
+{#if error}
+  <div class="alert alert-danger col-12" role="alert">{error}</div>
+{/if}
+<!-- <button
+        type="button"
+        disabled={fetchingRandom}
+        class="btn btn-primary mb-2"
+        on:click={() => addRandomTodo()}>Add Random Todo</button> -->

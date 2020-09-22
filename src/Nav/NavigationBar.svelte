@@ -6,7 +6,7 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   {#if $userSub}
-    <span class="navbar-text">{$userSub.name}</span>
+    <span class="navbar-text d-none d-sm-block">{$userSub.name}</span>
     <img
       src={$userSub.picture}
       width="30"

@@ -5,7 +5,7 @@ export class ToDo {
 
   constructor(public title: string) {
     this.dateAdded = new Date();
-    this.complete = false;
+    this.complete = Math.random() > 0.5;
   }
 
   toggleComplete() {
