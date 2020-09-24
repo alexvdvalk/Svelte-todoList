@@ -9,19 +9,26 @@ import axios from "axios";
 //   id: string;
 //   updatedAt: number;
 // }
-export let todos: ToDo[] = [];
 const serverUrl =
   "https://9vnj8jycfk.execute-api.eu-west-2.amazonaws.com/todos";
 
 export const loadingSub = new BehaviorSubject<boolean>(false);
+
+export let todos: ToDo[] = [];
 export const todosSub = new BehaviorSubject<ToDo[]>(todos);
 
 export const getTodosFromServer = async () => {
   toggleLoading(true);
   let todosFromServer = await axios.get(serverUrl);
   todos = todosFromServer.data.map((todo) => {
-    return new ToDo(todo.text, todo.id);
+    return new ToDo(
+      todo.title,
+      todo.id,
+      todo.complete,
+      new Date(todo.dateAdded)
+    );
   });
+  console.log("todos", todos);
   toggleLoading(false);
   todosSub.next(todos);
 };
@@ -44,22 +51,19 @@ export const deleteTodoID = async (id: number) => {
 
 export const addTodo = async (title: string) => {
   toggleLoading(true);
-  const t = await axios.put(serverUrl, { text: title });
-  todos.push(new ToDo(title, t.data.id));
-  todosSub.next(todos);
+  try {
+    const t = await axios.put(serverUrl, { title: title });
+    todos.push(
+      new ToDo(t.data.title, t.data.id, t.data.complete, t.data.dateAdded)
+    );
+    todosSub.next(todos);
+  } catch (err) {
+    console.log(err);
+  }
   toggleLoading(false);
 };
 
 export const toggleCompleteStatus = (id: number) => {
   todos[id].toggleComplete();
-  todosSub.next(todos);
-};
-
-export const addRandom = async () => {
-  const id = Math.round(Math.random() * 200);
-  const ax = await axios.get(
-    `https://jsonplaceholder.typicode.com/todos/${id}`
-  );
-  todos.push(new ToDo(ax.data.title));
   todosSub.next(todos);
 };

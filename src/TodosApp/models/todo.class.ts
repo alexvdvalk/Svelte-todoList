@@ -1,12 +1,11 @@
 export class ToDo {
-  public dateAdded: Date;
-  public complete: boolean;
-  public dateCompleted: Date;
-
-  constructor(public title: string, public id?: string) {
-    this.dateAdded = new Date();
-    this.complete = Math.random() > 0.5;
-  }
+  dateCompleted: Date;
+  constructor(
+    public title: string,
+    public id: string,
+    public complete: boolean,
+    public dateAdded: Date
+  ) {}
 
   toggleComplete() {
     if (this.complete) {

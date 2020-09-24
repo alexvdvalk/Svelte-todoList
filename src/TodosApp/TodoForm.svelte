@@ -1,15 +1,7 @@
 <script lang="ts">
-  import { addTodo, addRandom } from "./todoList";
+  import { addTodo } from "./todoList";
   let title = "";
-
   let error: string;
-
-  // const addRandomTodo = async () => {
-  //   fetchingRandom = true;
-  //   await addRandom();
-  //   fetchingRandom = false;
-  // };
-
   const submitForm = async () => {
     if (title.length > 0) {
       addTodo(title);
@@ -40,8 +32,3 @@
 {#if error}
   <div class="alert alert-danger col-12" role="alert">{error}</div>
 {/if}
-<!-- <button
-        type="button"
-        disabled={fetchingRandom}
-        class="btn btn-primary mb-2"
-        on:click={() => addRandomTodo()}>Add Random Todo</button> -->
