@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { fly } from "svelte/transition";
   import type { ToDo } from "./models/todo.class";
+
   import { deleteTodoID, toggleCompleteStatus } from "./todoList";
 
   export let todo: ToDo;
@@ -19,15 +19,15 @@
 </style>
 
 <!-- HTML -->
-<li
-  class="d-flex justify-content-between align-items-center list-group-item"
-  transition:fly>
+<li class="d-flex justify-content-between align-items-center list-group-item">
   {#if todo.complete}
     <div>
       <i class="fas fa-check-circle text-success" on:click={toggleComplete} />
     </div>
   {:else}
-    <div><i class="far fa-square" on:click={toggleComplete} /></div>
+    <div style="width:16px;">
+      <i class="far fa-square" on:click={toggleComplete} />
+    </div>
   {/if}
 
   <div class="col-sm-8 align-items-center flex-grow-1 w-100">{todo.title}</div>

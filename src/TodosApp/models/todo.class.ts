@@ -3,7 +3,7 @@ export class ToDo {
   public complete: boolean;
   public dateCompleted: Date;
 
-  constructor(public title: string) {
+  constructor(public title: string, public id?: string) {
     this.dateAdded = new Date();
     this.complete = Math.random() > 0.5;
   }

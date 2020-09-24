@@ -4,7 +4,7 @@
 </script>
 
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Todo List</a>
   {#if $userSub}
     <span class="navbar-text d-none d-sm-block">{$userSub.name}</span>
     <img
