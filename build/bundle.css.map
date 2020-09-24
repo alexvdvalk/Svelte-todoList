@@ -1,8 +1,12 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [],
-  "sourcesContent": [],
+  "sources": [
+    "TodoOverview.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n  import { onMount } from \"svelte\";\r\n  import TodoForm from \"./TodoForm.svelte\";\r\n  import TodoList from \"./TodoList.svelte\";\r\n  import { loadingSub, getTodosFromServer } from \"./todoList\";\r\n\r\n  onMount(async () => {\r\n    await getTodosFromServer();\r\n  });\r\n</script>\r\n\r\n<style>\r\n  .topSpace {\r\n    margin-top: 35px;\r\n  }\r\n</style>\r\n\r\n{#if $loadingSub}\r\n  <div class=\"d-flex justify-content-center topSpace\">\r\n    <div class=\"spinner-border\" role=\"status\">\r\n      <span class=\"sr-only\">Loading...</span>\r\n    </div>\r\n  </div>\r\n{:else}\r\n  <TodoForm />\r\n  <TodoList />\r\n{/if}\r\n"
+  ],
   "names": [],
-  "mappings": ""
+  "mappings": "AAYE,SAAS,cAAC,CAAC,AACT,UAAU,CAAE,IAAI,AAClB,CAAC"
 }
