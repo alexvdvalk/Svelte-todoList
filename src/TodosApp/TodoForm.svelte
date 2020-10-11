@@ -1,10 +1,15 @@
 <script lang="ts">
-  import { addTodo } from "./todoList";
+  import { addTodo, todoStore, loadingStore } from "./todoList";
   let title = "";
   let error: string;
+  let inputFocus = null;
   const submitForm = async () => {
     if (title.length > 0) {
-      addTodo(title);
+      let newT = await addTodo(title);
+
+      $todoStore = [...$todoStore, newT];
+      inputFocus.focus();
+
       title = "";
       error = "";
     } else {
@@ -20,13 +25,18 @@
   <div class="flex-grow-1 w-100 pt-2 pb-2 pr-2">
     <input
       type="text"
+      disabled={$loadingStore}
       bind:value={title}
       class="form-control"
+      bind:this={inputFocus}
       placeholder="Create a new task" />
   </div>
 
   <div class="pt-2 pb-2">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button
+      type="submit"
+      disabled={$loadingStore}
+      class="btn btn-primary">Submit</button>
   </div>
 </form>
 {#if error}

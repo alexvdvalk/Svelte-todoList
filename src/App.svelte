@@ -1,15 +1,13 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { checkLogin } from "./auth0.config";
+  // import { onMount } from "svelte";
+  // import { checkLogin } from "./auth0.config";
   import NavigationBar from "./Nav/NavigationBar.svelte";
 
-  import { page } from "./routes";
-  import router from "page";
   import TodoOverview from "./TodosApp/TodoOverview.svelte";
 
-  onMount(async () => {
-    await checkLogin();
-  });
+  // onMount(async () => {
+  //   await checkLogin();
+  // });
 </script>
 
 <style>

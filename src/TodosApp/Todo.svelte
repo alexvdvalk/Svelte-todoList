@@ -1,17 +1,24 @@
 <script lang="ts">
-  import type { ToDo } from "./models/todo.class";
-
-  import { deleteTodoID, toggleCompleteStatus } from "./todoList";
-
-  export let todo: ToDo;
+  import { deleteTodoID, todoStore, toggleLoading } from "./todoList";
   export let id: number;
-  // $: doubled = count * 2;
-  const deleteTodo = () => {
-    deleteTodoID(id);
+
+  const deleteTodo = async () => {
+    toggleLoading(true);
+    try {
+      await deleteTodoID($todoStore[id].id);
+      $todoStore.splice(id, 1);
+      $todoStore = $todoStore;
+    } catch (err) {
+      console.log(err);
+    } finally {
+      toggleLoading(false);
+    }
   };
 
   const toggleComplete = () => {
-    toggleCompleteStatus(id);
+    // toggleCompleteStatus(id);
+    $todoStore[id].toggleComplete();
+    $todoStore = $todoStore;
   };
 </script>
 
@@ -19,8 +26,8 @@
 </style>
 
 <!-- HTML -->
-<li class="d-flex justify-content-between align-items-center list-group-item">
-  {#if todo.complete}
+<div class="d-flex justify-content-between align-items-center list-group-item">
+  {#if $todoStore[id].complete}
     <div>
       <i class="fas fa-check-circle text-success" on:click={toggleComplete} />
     </div>
@@ -30,7 +37,9 @@
     </div>
   {/if}
 
-  <div class="col-sm-8 align-items-center flex-grow-1 w-100">{todo.title}</div>
+  <div class="col-sm-8 align-items-center flex-grow-1 w-100">
+    {$todoStore[id].title}
+  </div>
 
   <!-- <div class="col align-items-center">Complete: {todo.complete}</div> -->
 
@@ -55,6 +64,6 @@
       disabled={!$userSub}
       on:click={toggleComplete}>Mark As {todo.complete ? 'Incomplete' : 'Complete'}</button>
   </div> -->
-</li>
+</div>
 <!-- </div>
 </div> -->
