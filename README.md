@@ -1,18 +1,14 @@
 # Demo App
 
-Practice App utiliziing Svelte.js with Typescript, Auth0-spa-js, rxjs BehaviorSubjects to keep everything in sync
+Practice App utiliziing Svelte.js with Typescript. Total bundle size = 27kb!!
 
-<a href="https://alexvdvalk.github.io/Svelte-todo-with-auth0/" target="_blank">DEMO</a>
-
-Username: demo@demo.com\
-Password: F7xU7tY5Kf
+<a href="https://alexvdvalk.github.io/Svelte-todoList/" target="_blank">DEMO</a>
 
 ## Get started
 
 Install the dependencies...
 
 ```bash
-cd svelte-app
 npm install
 npm run dev
 ```

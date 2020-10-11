@@ -10,29 +10,25 @@
     "deploy:gh": "gh-pages -d public/"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
     "@tsconfig/svelte": "^1.0.0",
     "@types/page": "^1.8.0",
-    "rollup": "^2.3.4",
+    "gh-pages": "^3.1.0",
+    "rollup": "^2.29.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^6.0.0",
     "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "svelte-check": "^1.0.0",
-    "svelte-preprocess": "^4.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.3"
+    "svelte": "^3.29.0",
+    "svelte-check": "^1.0.55",
+    "svelte-preprocess": "^4.5.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.12.1",
-    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "axios": "^0.20.0",
-    "gh-pages": "^3.1.0",
-    "page": "^1.11.6",
-    "rxjs": "^6.6.3",
-    "sirv-cli": "^1.0.0",
-    "svelte-flex": "^1.1.0"
+    "sirv-cli": "^1.0.0"
   }
 }

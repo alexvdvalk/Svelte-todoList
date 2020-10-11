@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { addTodo, todoStore, loadingStore } from "./todoList";
+  import { addTodo, todoStore, loadingStore, toggleLoading } from "./todoList";
   let title = "";
   let error: string;
   let inputFocus = null;
   const submitForm = async () => {
     if (title.length > 0) {
+      toggleLoading(true);
       let newT = await addTodo(title);
-
       $todoStore = [...$todoStore, newT];
       inputFocus.focus();
-
       title = "";
       error = "";
+      toggleLoading(false);
     } else {
       error = "Please add a task description";
     }
