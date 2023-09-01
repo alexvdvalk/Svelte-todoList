@@ -1,7 +1,7 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
-  "homepage": "https://alexvdvalk.github.io/Svelte-todo-with-auth0",
+  "homepage": "https://alexvdvalk.github.io/Svelte-todoList/",
   "type": "module",
   "scripts": {
     "build": "vite build",
