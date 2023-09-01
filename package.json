@@ -2,33 +2,34 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "homepage": "https://alexvdvalk.github.io/Svelte-todo-with-auth0",
+  "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --single",
+    "build": "vite build",
+    "dev": "vite",
+    "start": "vite preview",
     "validate": "svelte-check",
-    "deploy:gh": "gh-pages -d public/"
+    "deploy:gh": "gh-pages -d public/",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^15.1.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@tsconfig/svelte": "^1.0.0",
+    "@sveltejs/vite-plugin-svelte": "^2.4.4",
+    "@tsconfig/svelte": "^5.0.0",
     "@types/page": "^1.8.0",
+    "@types/uuid": "^9.0.3",
+    "autoprefixer": "^10.4.15",
     "gh-pages": "^3.1.0",
-    "rollup": "^2.29.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^6.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.29.0",
-    "svelte-check": "^1.0.55",
-    "svelte-preprocess": "^4.5.1",
-    "tslib": "^2.0.3",
-    "typescript": "^4.0.3"
+    "postcss": "^8.4.29",
+    "postcss-load-config": "^4.0.1",
+    "svelte": "^4.1.2",
+    "svelte-check": "^3.4.6",
+    "svelte-preprocess": "^5.0.4",
+    "tailwindcss": "^3.3.3",
+    "tslib": "^2.6.1",
+    "typescript": "^5.0.2",
+    "uuid": "^9.0.0",
+    "vite": "^4.4.9"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
-    "axios": "^0.20.0",
-    "sirv-cli": "^1.0.0"
+    "@fortawesome/fontawesome-free": "^5.15.1"
   }
 }

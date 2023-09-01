@@ -1,22 +1,10 @@
-# Demo App
+# One of my first svelte apps
 
-Practice App utiliziing Svelte.js with Typescript. Total bundle size = 27kb!!
+This was one of my first svelte apps that was built in mid 2020. This was before Vite or Sveltekit.
 
-<a href="https://alexvdvalk.github.io/Svelte-todoList/" target="_blank">DEMO</a>
-
-## Get started
-
-Install the dependencies...
-
-```bash
-npm install
-npm run dev
-```
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
+It used:
+* Bootstrap instead of Tailwind
+* RXJS BehaviorSubjects instead of stores
+* Page.js instead of Kit
+  
+I've converted this to a Vite + tailwind + typescript but it would have been much easier to just start from scratcH!

@@ -8,7 +8,7 @@
   <!-- <div class="row-12"> -->
   {#each $todoStore as todo, i (todo.id)}
     <div animate:flip>
-      <Todo id={i} />
+      <Todo bind:todo />
     </div>
   {/each}
   <!-- </div> -->
