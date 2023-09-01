@@ -8,3 +8,9 @@ It used:
 * Page.js instead of Kit
   
 I've converted this to a Vite + tailwind + typescript but it would have been much easier to just start from scratcH!
+
+# TODO
+
+Task item needs some CSS
+
+https://alexvdvalk.github.io/Svelte-todoList/

@@ -8,7 +8,7 @@
     "dev": "vite",
     "start": "vite preview",
     "validate": "svelte-check",
-    "deploy:gh": "gh-pages -d public/",
+    "deploy:gh": "gh-pages -d dist/",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
