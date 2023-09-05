@@ -7,9 +7,9 @@
 <ul class="list-group pt-2">
   <!-- <div class="row-12"> -->
   {#each $todoStore as todo, i (todo.id)}
-    <div animate:flip>
+    <li animate:flip>
       <Todo bind:todo />
-    </div>
+    </li>
   {/each}
   <!-- </div> -->
 </ul>

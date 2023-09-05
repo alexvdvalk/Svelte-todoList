@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Card from "./Card.svelte";
   import type { ToDo } from "./interfaces";
   import { todoStore } from "./todoList";
   export let todo: ToDo;
@@ -13,24 +14,19 @@
 
 <!-- HTML -->
 
-<div class="flex justify-center">
-  <button on:click={toggleComplete} class="text-5xl">
-    Mark {todo.complete ? "Incomplete" : "Complete"}</button
-  >
-  <div class="col-sm-8 align-items-center flex-grow-1 w-100">
-    {todo.title}
-  </div>
-  <div class="col">
-    <button
-      type="button"
-      class="close"
-      aria-label="Close"
-      on:click={deleteTodo}
-    >
-      <span aria-hidden="true">Delete</span>
-    </button>
-  </div>
-</div>
+<Card bg={todo.complete ? "bg-green-300" : "bg-slate-100"}>
+  <div class="flex justify-between">
+    <div class="my-auto">
+      {todo.title}
+    </div>
+    <div>
+      <button on:click={toggleComplete}>
+        Mark {todo.complete ? "Incomplete" : "Complete"}</button
+      >
 
-<style>
-</style>
+      <button on:click={deleteTodo}>
+        <span>Delete</span>
+      </button>
+    </div>
+  </div>
+</Card>
